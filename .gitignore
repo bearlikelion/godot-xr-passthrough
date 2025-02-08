@@ -1,0 +1,19 @@
+*.o
+*.os
+*.dblite
+*.exp
+*.lib
+*.obj
+*.TMP
+logs
+Thumbs.db
+android/
+.venv/
+Build/
+
+# Godot specific ignores
+.godot/
+.import/
+
+# Imported translations (automatically generated from CSV files)
+*.translation
