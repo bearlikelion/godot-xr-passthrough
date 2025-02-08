@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot XR Game Jam"
-run/main_scene="res://demo_staging.tscn"
+run/main_scene="res://Scenes/XR/demo_staging.tscn"
 config/features=PackedStringArray("4.4")
 config/icon="uid://gamnoaueqq45"
 
