@@ -20,6 +20,7 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 80.0
 
 [node name="ArtificialLights" type="Node3D" parent="."]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ArtificialLights"]
 transform = Transform3D(0.747779, 0.367885, -0.552709, 0, 0.832459, 0.554087, 0.663947, -0.414335, 0.622495, 38.1028, 10.5868, 14.8252)

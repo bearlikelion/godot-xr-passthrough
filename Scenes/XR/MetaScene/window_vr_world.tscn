@@ -6,7 +6,6 @@
 script = ExtResource("1_62pk4")
 
 [node name="Label3D" type="Label3D" parent="."]
-visible = false
 text = "SCENE"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

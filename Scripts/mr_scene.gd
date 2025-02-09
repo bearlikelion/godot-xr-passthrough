@@ -1,11 +1,11 @@
 extends Area3D
 
 const SHADOW_MATERIAL = preload("res://Materials/shadow_material.tres")
-const WALL_SCENE = preload("res://Scenes/XR/MR/wall_scene.tscn")
-const WINDOW_SCENE = preload("res://Scenes/XR/MR/window_scene.tscn")
+const WINDOW_FRAME = preload("res://Scenes/XR/MR/window_frame.tscn")
+const WALL_FACE = preload("res://Scenes/XR/MR/wall_face.tscn")
 
-var wall_mesh: StaticBody3D = WALL_SCENE.instantiate()
-var window_mesh: StaticBody3D = WINDOW_SCENE.instantiate()
+var window_mesh: StaticBody3D = WINDOW_FRAME.instantiate()
+var wall_mesh: StaticBody3D = WALL_FACE.instantiate()
 
 @onready var label_3d: Label3D = $Label3D
 
