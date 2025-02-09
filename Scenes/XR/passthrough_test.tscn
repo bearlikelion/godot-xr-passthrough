@@ -1,30 +1,31 @@
 [gd_scene load_steps=8 format=3 uid="uid://bj0mmwocaeh78"]
 
 [ext_resource type="Script" uid="uid://bhsn0it0rj1c6" path="res://Scripts/passthrough_test.gd" id="1_5fdrf"]
-[ext_resource type="PackedScene" uid="uid://ds7klkmlrh4ri" path="res://Scenes/XR/MetaScene/default_scene.tscn" id="2_2vykl"]
 [ext_resource type="Script" uid="uid://depwxksnqokim" path="res://Scripts/open_xr_fb_scene_manager.gd" id="2_dcl37"]
 [ext_resource type="Environment" uid="uid://ckiwtcdsam7ed" path="res://addons/godot-xr-tools/staging/staging_env.tres" id="2_rgii5"]
+[ext_resource type="PackedScene" uid="uid://mnk8swk223pj" path="res://Scenes/XR/MetaScene/window_frame.tscn" id="4_xlo5e"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rgii5"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f4neq"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_ab4xx"]
-sky_material = SubResource("ProceduralSkyMaterial_rgii5")
+[sub_resource type="Sky" id="Sky_xlo5e"]
+sky_material = SubResource("ProceduralSkyMaterial_f4neq")
 
-[sub_resource type="Environment" id="Environment_gurvv"]
-background_mode = 1
-background_color = Color(1, 1, 1, 0)
-sky = SubResource("Sky_ab4xx")
-ambient_light_source = 1
-reflected_light_source = 1
+[sub_resource type="Environment" id="Environment_h3dw4"]
+background_mode = 2
+sky = SubResource("Sky_xlo5e")
 tonemap_mode = 2
 
 [node name="SceneBase" type="Node3D"]
 script = ExtResource("1_5fdrf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_gurvv")
+environment = SubResource("Environment_h3dw4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+omni_range = 50.0
+omni_attenuation = 0.5
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
 
@@ -44,5 +45,5 @@ tracker = &"right_hand"
 pose = &"aim"
 
 [node name="OpenXRFbSceneManager" type="OpenXRFbSceneManager" parent="XROrigin3D"]
-default_scene = ExtResource("2_2vykl")
+scenes/window_frame = ExtResource("4_xlo5e")
 script = ExtResource("2_dcl37")

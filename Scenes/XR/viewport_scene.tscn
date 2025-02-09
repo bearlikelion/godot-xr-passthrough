@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://byv0jg8txlo68"]
+
+[ext_resource type="Script" uid="uid://bhsn0it0rj1c6" path="res://Scripts/passthrough_test.gd" id="1_hg5e5"]
+[ext_resource type="Environment" uid="uid://ckiwtcdsam7ed" path="res://addons/godot-xr-tools/staging/staging_env.tres" id="2_c0cmy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rgii5"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_ab4xx"]
+sky_material = SubResource("ProceduralSkyMaterial_rgii5")
+
+[sub_resource type="Environment" id="Environment_gurvv"]
+background_mode = 1
+background_color = Color(1, 1, 1, 0)
+sky = SubResource("Sky_ab4xx")
+ambient_light_source = 1
+reflected_light_source = 1
+tonemap_mode = 2
+
+[node name="SceneBase" type="Node3D"]
+script = ExtResource("1_hg5e5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gurvv")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6823, 5.1821, 12.7563)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+environment = ExtResource("2_c0cmy")
+far = 300.0
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+pose = &"aim"

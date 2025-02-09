@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx3mqy7frko01"]
+
+[ext_resource type="Script" uid="uid://r1xjhdrhpsd6" path="res://Scripts/town_scene.gd" id="1_cwwem"]
+[ext_resource type="PackedScene" uid="uid://61xws2eaiy4s" path="res://Scenes/XR/sub_viewport.tscn" id="2_cwwem"]
+
+[node name="SceneAnchor" type="StaticBody3D"]
+script = ExtResource("1_cwwem")
+
+[node name="Label3D" type="Label3D" parent="."]
+visible = false
+text = "SCENE"
+
+[node name="SubViewport" parent="." instance=ExtResource("2_cwwem")]
