@@ -23,6 +23,6 @@ func _enable_passthrough(enable: bool) -> void:
 		print("Supported: %s" % OpenXRFbPassthroughExtensionWrapper.is_passthrough_supported())
 	else:
 		print("Disable Passthrough")
-		#get_viewport().transparent_bg = false
-		#world_environment.environment.background_mode = Environment.BG_SKY
-		#openxr_interface.environment_blend_mode = XRInterface.XR_ENV_BLEND_MODE_OPAQUE
+		get_viewport().transparent_bg = false
+		world_environment.environment.background_mode = Environment.BG_SKY
+		openxr_interface.environment_blend_mode = XRInterface.XR_ENV_BLEND_MODE_OPAQUE

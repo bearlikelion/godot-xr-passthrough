@@ -1,10 +1,9 @@
 extends Node3D
 
-const SUBVIEWPORT_MATERIAL = preload("res://Scenes/XR/MetaScene/subviewport_material.tres")
+const SHADOW_MATERIAL = preload("res://Materials/shadow_material.tres")
 
 @onready var label_3d: Label3D = $Label3D
 @onready var sub_viewport: SubViewport = $SubViewport
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,14 +26,10 @@ func setup_scene(entity: OpenXRFbSpatialEntity) -> void:
 
 	var mesh_instance: MeshInstance3D = entity.create_mesh_instance()
 	if mesh_instance:
-		add_child(mesh_instance)
-		var material = StandardMaterial3D.new()
-		material.resource_local_to_scene = true
-		material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		# var viewport_texture: ViewportTexture = ViewportTexture.new()
-		# viewport_texture.viewport_path = ^'../SubViewport'
-		material.albedo_texture = sub_viewport.get_texture()
-		mesh_instance.material_override = material
-
-		var viewport_camera: Camera3D = Camera3D.new()
-		mesh_instance.add_child(viewport_camera)
+		var csg_mesh: CSGMesh3D = CSGMesh3D.new()
+		csg_mesh.name = "WallMesh"
+		add_child(csg_mesh)
+		print("Create WallMesh")
+		csg_mesh.mesh = mesh_instance.mesh
+		csg_mesh.material = SHADOW_MATERIAL
+		csg_mesh.flip_faces = true

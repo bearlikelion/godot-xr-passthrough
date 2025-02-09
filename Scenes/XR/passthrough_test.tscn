@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj0mmwocaeh78"]
+[gd_scene load_steps=9 format=3 uid="uid://bj0mmwocaeh78"]
 
 [ext_resource type="Script" uid="uid://bhsn0it0rj1c6" path="res://Scripts/passthrough_test.gd" id="1_5fdrf"]
 [ext_resource type="Script" uid="uid://depwxksnqokim" path="res://Scripts/open_xr_fb_scene_manager.gd" id="2_dcl37"]
 [ext_resource type="Environment" uid="uid://ckiwtcdsam7ed" path="res://addons/godot-xr-tools/staging/staging_env.tres" id="2_rgii5"]
-[ext_resource type="PackedScene" uid="uid://mnk8swk223pj" path="res://Scenes/XR/MetaScene/window_frame.tscn" id="4_xlo5e"]
+[ext_resource type="PackedScene" uid="uid://df14cin45knys" path="res://Scenes/town/town_scene_vr.tscn" id="2_xlo5e"]
+[ext_resource type="PackedScene" uid="uid://dbb8cv8st1iis" path="res://Scenes/XR/MetaScene/window_vr_world.tscn" id="5_h3dw4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f4neq"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -23,11 +24,10 @@ script = ExtResource("1_5fdrf")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h3dw4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-omni_range = 50.0
-omni_attenuation = 0.5
+[node name="TownScene" parent="." instance=ExtResource("2_xlo5e")]
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3747, 5.1821, 14.3352)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
@@ -45,5 +45,6 @@ tracker = &"right_hand"
 pose = &"aim"
 
 [node name="OpenXRFbSceneManager" type="OpenXRFbSceneManager" parent="XROrigin3D"]
-scenes/window_frame = ExtResource("4_xlo5e")
+scenes/wall_face = ExtResource("5_h3dw4")
+scenes/window_frame = ExtResource("5_h3dw4")
 script = ExtResource("2_dcl37")

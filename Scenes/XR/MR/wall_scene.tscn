@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://blvx6iwk18w6u"]
+
+[ext_resource type="Script" uid="uid://bqpvwq5bckigl" path="res://Scenes/XR/MR/wall_scene.gd" id="1_kysha"]
+[ext_resource type="Material" uid="uid://hc8mqj4xw82a" path="res://Materials/shadow_material.tres" id="1_q875f"]
+
+[node name="WallScene" type="StaticBody3D" groups=["wall"]]
+script = ExtResource("1_kysha")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+flip_faces = true
+material = ExtResource("1_q875f")

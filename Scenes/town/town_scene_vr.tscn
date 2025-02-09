@@ -1,29 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://df14cin45knys"]
+[gd_scene load_steps=5 format=3 uid="uid://df14cin45knys"]
 
-[ext_resource type="Material" uid="uid://bpms6jemjgt36" path="res://Scenes/town/sky_day.tres" id="2_e80ab"]
 [ext_resource type="PackedScene" uid="uid://csucj4oj3q3qt" path="res://Scenes/town/model/town_model.gltf" id="3_sibas"]
 [ext_resource type="Material" uid="uid://c71ovlrgdfif5" path="res://Scenes/town/materials/grass.tres" id="4_oybef"]
 [ext_resource type="Material" uid="uid://bdjiubscxkdn6" path="res://Scenes/town/materials/cement.tres" id="5_i43f6"]
 
-[sub_resource type="Sky" id="Sky_1gf0c"]
-sky_material = ExtResource("2_e80ab")
-
-[sub_resource type="Environment" id="Environment_dauhq"]
-background_mode = 2
-sky = SubResource("Sky_1gf0c")
-tonemap_mode = 2
-tonemap_white = 6.0
-glow_intensity = 0.5
-glow_blend_mode = 1
-fog_enabled = true
-fog_light_color = Color(0.62, 0.6014, 0.6014, 1)
-fog_density = 0.0015
-fog_sky_affect = 0.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rceqi"]
+shading_mode = 0
+albedo_color = Color(0.372244, 0.478248, 0.776745, 1)
 
 [node name="TownScene" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_dauhq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.793955, 0.350561, -0.496732, -0.295414, 0.491651, 0.819152, 0.531381, 0.797111, -0.286788, 11.0084, 12.3453, -31.3148)
@@ -185,5 +170,10 @@ surface_material_override/0 = ExtResource("5_i43f6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.892342, 0, 0.45136, 0, 1, 0, -0.45136, 0, 0.892342, -15.4142, 9.58501, 16.5317)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+flip_faces = true
+radius = 100.0
+material = SubResource("StandardMaterial3D_rceqi")
 
 [editable path="TownModel"]

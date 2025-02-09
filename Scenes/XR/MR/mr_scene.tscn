@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck884vggohd5j"]
+
+[ext_resource type="Script" uid="uid://dy37stbdqx13h" path="res://Scripts/mr_scene.gd" id="1_tttjo"]
+
+[node name="SceneAnchor" type="StaticBody3D"]
+script = ExtResource("1_tttjo")
+
+[node name="Label3D" type="Label3D" parent="."]
+text = "SCENE"
