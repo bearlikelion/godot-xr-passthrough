@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfovh0wcuay2p"]
-
-[ext_resource type="Script" uid="uid://d2kqrvfg2migt" path="res://Scripts/wall_shadow.gd" id="1_6axla"]
-
-[node name="WallAnchor" type="StaticBody3D"]
-script = ExtResource("1_6axla")
-
-[node name="Label3D" type="Label3D" parent="."]
-text = "SCENE"
